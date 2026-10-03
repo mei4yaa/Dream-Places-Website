@@ -1,0 +1,78 @@
+
+:root{
+  --bg:#e6dbca; --ink:#3a2f27; --muted:#5c524a;
+  --accent:#d57e4b;
+  --gold:#b07115;
+  --btn-grey:#b9ad9c;
+  --display:'Fraunces',Georgia,serif;
+  --body:'Outfit',system-ui,sans-serif;
+  --label:'Lora',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+nav{display:flex;justify-content:center;gap:2rem;padding:1.1rem 1rem 0;border-bottom:1px solid #777;
+  background:var(--bg);position:sticky;top:0;z-index:10}
+nav a{font:500 .95rem var(--body);color:var(--ink);text-decoration:none;padding:.2rem .1rem .7rem;
+  border-bottom:3px solid transparent}
+nav a[aria-current="page"]{font-weight:700;border-bottom-color:var(--accent)}
+
+.label{font-family:var(--label);color:var(--gold);font-size:.95rem}
+.polaroid{background:#eceeea;padding:.7rem;box-shadow:0 6px 18px rgba(0,0,0,.18);transform:rotate(-4deg);width:min(100%,340px)}
+.photo{aspect-ratio:3/4;background-size:cover;background-position:center;background-color:#8a7c6a}
+.btn{display:inline-block;text-decoration:none;font:500 .9rem var(--label);color:var(--ink);
+  padding:.7rem 2.2rem;border-radius:14px;cursor:pointer;border:2px dashed #7a6c5c;background:var(--btn-grey)}
+.btn.primary{background:var(--accent);border-color:#8a4a22}
+.btn:hover{filter:brightness(1.07)}
+
+.hero{max-width:1100px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+.hero h1{font-family:var(--display);font-style:italic;font-weight:900;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.15;margin:.4rem 0 1.2rem;color:#000}
+.hero h1 em{color:var(--accent)}
+.hero p{max-width:30rem;color:var(--muted);margin-bottom:2.5rem}
+.hero .polaroid{justify-self:center;transform:rotate(4deg)}
+.hero .photo{background-image:url('korea1.jpeg'),linear-gradient(160deg,#6f9bd0,#c98f55)}
+.divider{max-width:880px;margin:0 auto;border:0;border-top:1px solid #777}
+.cols{max-width:1100px;margin:0 auto;padding:3rem 2rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.cols h2{font-family:var(--display);font-style:italic;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:#474747;margin:.2rem 0 1rem}
+.cols h2 em{color:var(--accent)}
+.cols p{color:var(--muted);font-size:.92rem}
+.tags{display:flex;gap:.8rem;flex-wrap:wrap;list-style:none}
+.tags li{border:1px solid #666;border-radius:999px;padding:.2rem 1.1rem;font-size:.9rem;color:var(--muted)}
+
+.banner{position:relative;height:clamp(260px,42vw,4400px);background-size:cover;background-position:center;
+  display:grid;place-items:center;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:rgba(10,15,40,.35)}
+.banner h1{position:relative;font-family:'Anton',Impact,sans-serif;font-weight:400;
+  font-size:clamp(4rem,17vw,12rem);letter-spacing:.02em;color:rgba(255,255,255,.35);line-height:1}
+.place1 .banner{background-image:url('korea2.jpeg'),linear-gradient(#10163a,#3b3f78)}
+.place2 .banner{background-image:url('newyork2.jpeg'),linear-gradient(#2b3140,#6b7280)}
+.place1 .photo{background-image:url('korea3.jpeg'),linear-gradient(#1f8fd1,#c9b79a)}
+.place2 .photo{background-image:url('newyork1.jpeg'),linear-gradient(#2f79d0,#7fb0a8)}
+.place{max-width:1000px;margin:0 auto;padding:4rem 2rem 2rem;display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+.place .polaroid{justify-self:center}
+.place h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.25;text-align:justify;margin:.5rem 0 1.2rem}
+.place p{font-size:.88rem;color:var(--muted);text-align:justify}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.2rem}
+.fact{background:var(--gold);border:2px solid #000;border-radius:20px;box-shadow:8px 8px 0 #000;padding:.6rem 1rem 1rem}
+.fact span{font-family:var(--label);font-size:.8rem}
+.fact strong{display:block;text-align:center;font-size:1.5rem;font-weight:700;text-transform:uppercase}
+.actions{max-width:1000px;margin:0 auto;padding:2rem 2rem 6rem;display:flex;justify-content:flex-end;gap:1rem}
+
+@media (max-width:760px){
+  .hero,.cols,.place{grid-template-columns:1fr}
+  .hero .polaroid{order:-1}
+  .actions{justify-content:center}
+  nav{gap:1.2rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  main{animation:fade .35s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+
+  .sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+}
+}
